@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 03:11:51 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/15 04:14:41 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/15 05:53:43 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,5 @@ long	ft_atoi(char *str)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	if (result * mul > INT_MAX || result * mul < INT_MIN)
-		return ((long)INT_MAX + 1L);
 	return (result * mul);
 }

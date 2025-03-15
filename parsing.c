@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:22 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/15 04:55:43 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/15 06:15:01 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,25 @@ int	valid_nums(int ac, char **av)
 {
 	int	i;
 	int	a;
+	long	num;
 
 	a = 0;
 	while (a < ac)
 	{
 		i = 0;
-		if (av[a][i] == '-' || av[a][i] == '+' || ft_isdigit(av[a][i]))
+		if (av[a][i] == '-' || av[a][i] == '+')
 			i++;
+		if (!ft_isdigit(av[a][i]))
+			return (0);
 		while (av[a][i])
 		{
 			if (!ft_isdigit(av[a][i]))
 				return (0);
 			i++;
 		}
+		num = ft_atoi(av[a]);
+		if (num > INT_MAX || num < INT_MIN)
+			return (0);
 		a++;
 	}
 	return (1);
@@ -83,18 +89,20 @@ int	is_empty(int ac, char **av)
 
 int	is_duplicate(char **av, int ac)
 {
-	int i = 0;
-	int a = 0;
-	while (a < ac)
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < ac - 1)
 	{
-		i = 0;
-		while (av[a][i])
+		j = i + 1;
+		while (j < ac)
 		{
-			if (av[a + 1] && ft_atoi(av[a]) == ft_atoi(av[a + 1]))
+			if (ft_atoi(av[i]) == ft_atoi(av[j]))
 				return (1);
-			i++;
+			j++;
 		}
-		a++;
+		i++;
 	}
 	return (0);
 }
