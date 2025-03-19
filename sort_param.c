@@ -1,28 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   sort_param.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/14 02:14:28 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/19 08:29:10 by abouknan         ###   ########.fr       */
+/*   Created: 2025/03/17 10:31:54 by abouknan          #+#    #+#             */
+/*   Updated: 2025/03/18 17:19:53 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include "ft_printf/ft_printf.h"
-# include "libft/libft.h"
-# include <limits.h>
-# include <stdlib.h>
-
-int					is_empty(int ac, char **av);
-char				*ft_join(char **av, int ac);
-int					valid_nums(int ac, char **av);
-int					is_duplicate(char **av, int ac);
-void				sx(t_list **stack_a);
-void				rx(t_list **stack_a);
-
-#endif
+#include "push_swap.h"

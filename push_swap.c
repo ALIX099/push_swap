@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:25 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/15 04:55:12 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/19 08:33:55 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	main(int ac, char **av)
 {
 	char	**array;
 	int		i;
+	t_list	*stack_a;
+	t_list	*stack_b;
 
 	i = 0;
 	if (ac == 1 || is_empty(ac, av))

@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:22 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/15 06:15:01 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/15 21:01:20 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	valid_nums(int ac, char **av)
 {
-	int	i;
-	int	a;
+	int		i;
+	int		a;
 	long	num;
 
 	a = 0;
@@ -89,8 +89,8 @@ int	is_empty(int ac, char **av)
 
 int	is_duplicate(char **av, int ac)
 {
-	int	i;
-	int	j;
+	int i;
+	int j;
 
 	i = 0;
 	while (i < ac - 1)
