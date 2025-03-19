@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 14:52:37 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/19 08:45:22 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/19 09:00:22 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,14 @@ void	rrx(t_list **stack)
 
 void px(t_list **stack , t_list **sec_stack)
 {
+	t_list *new;
+	t_list *tmp;
+
 	if (!stack || !(*stack))
 		return;
-	*sec_stack = ft_lstnew((*stack)->content);
-	
+	new->content = (*stack)->content;
+	ft_lstadd_front(sec_stack, new);
+	tmp = *stack;
+	(*stack) = (*stack)->next;
+	free(tmp);
 }
