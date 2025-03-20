@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:28 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/19 08:29:10 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/20 00:44:16 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 # include <limits.h>
 # include <stdlib.h>
 
-int					is_empty(int ac, char **av);
-char				*ft_join(char **av, int ac);
-int					valid_nums(int ac, char **av);
-int					is_duplicate(char **av, int ac);
-void				sx(t_list **stack_a);
-void				rx(t_list **stack_a);
-
+int		is_empty(int ac, char **av);
+char	*ft_join(char **av, int ac);
+int		valid_nums(int ac, char **av);
+int		is_duplicate(char **av, int ac);
+void	sx(t_list **stack_a);
+void	rx(t_list **stack_a);
+void	rrx(t_list **stack);
+void	px(t_list **stack, t_list **sec_stack);
 #endif
