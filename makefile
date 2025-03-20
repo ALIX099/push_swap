@@ -5,7 +5,10 @@ CFLAGS = -Wextra -Wall -Werror -g3
 LIBS = libft/libft.a \
 	ft_printf/libftprintf.a
 
-SRCS = parsing.c push_swap.c algorithme.c
+SRCS = parsing.c \
+	push_swap.c \
+	algorithme.c \
+	moves.c
 
 OBJS = $(SRCS:.c=.o)
 
