@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:25 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/20 00:43:08 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/20 03:34:12 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,56 @@ static char	**valid_args(int ac, char **av)
 	return (array);
 }
 
+t_list	*append(char **array)
+{
+	int		i;
+	int		*value;
+	t_list	*head;
+	t_list	*stack;
+
+	i = 0;
+	head = NULL;
+	while (i < count_array_str(array))
+	{
+		value = malloc(sizeof(int));
+		if (!value)
+			return (NULL);
+		*value = ft_atoi(array[i]);
+		stack = ft_lstnew(value);
+		if (!stack)
+		{
+			free(value);
+			return (NULL);
+		}
+		ft_lstadd_back(&head, stack);
+		i++;
+	}
+	return (head);
+}
+
 int	main(int ac, char **av)
 {
 	char	**array;
 	int		i;
 	t_list	*stack_a;
-	t_list	*stack_b;
+	t_list	*tmp;
 
+	// t_list	*stack_b;
 	i = 0;
 	if (ac == 1 || is_empty(ac, av))
 		return (write(2, "Error\n", 6), 1);
-	array = valid_args(ac, av);
+	array = valid_args(ac, av); // Need to be freed
 	if (!array)
 		return (write(2, "Error\n", 6), 1);
+	stack_a = append(array);
+	if (!stack_a)
+		return (split_free(array, count_array_str(array)), write(2, "Error\n",
+				6), 1);
+	tmp = stack_a;
+	while (tmp)
+	{
+		printf("%d -> ", *(int *)tmp->content);
+		tmp = tmp->next;
+	}
+	printf("NULL\n");
 }

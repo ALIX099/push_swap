@@ -8,7 +8,10 @@ LIBS = libft/libft.a \
 SRCS = parsing.c \
 	push_swap.c \
 	algorithme.c \
-	moves.c
+	moves/rx.c \
+	moves/sx.c \
+	moves/rrx.c \
+	moves/px.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -17,6 +20,7 @@ EXNAME = push_swap
 all: libft ft_printf $(EXNAME)
 
 libft:
+	make bonus -C libft
 	make -C libft
 
 ft_printf:
