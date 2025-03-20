@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:25 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/20 03:34:12 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/20 03:44:27 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,10 @@ int	main(int ac, char **av)
 	int		i;
 	t_list	*stack_a;
 	t_list	*tmp;
+	t_list	*stack_b;
 
-	// t_list	*stack_b;
+	stack_a = NULL;
+	stack_b = NULL;
 	i = 0;
 	if (ac == 1 || is_empty(ac, av))
 		return (write(2, "Error\n", 6), 1);
