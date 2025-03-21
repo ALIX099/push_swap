@@ -32,9 +32,6 @@ $(FT_PRINTF):
 $(EXNAME): $(OBJS) $(LIBS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(EXNAME)
 
-%.o: %.c push_swap.h
-	$(CC) $(CFLAGS) -c $< -o $@
-
 clean:
 	make clean -C libft
 	make clean -C ft_printf
