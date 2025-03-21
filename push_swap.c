@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:25 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/20 03:44:27 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/21 02:32:23 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	i = 0;
-	if (ac == 1 || is_empty(ac, av))
+	if (is_empty(ac, av))
 		return (write(2, "Error\n", 6), 1);
 	array = valid_args(ac, av); // Need to be freed
 	if (!array)

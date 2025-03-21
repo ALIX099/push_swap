@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 01:07:51 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/20 01:11:25 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:00:23 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	rx(t_list **stack)
 {
-	t_list	*last;
-	t_list	*first;
+	t_list *last;
+	t_list *first;
 
 	if (!stack || !(*stack) || !(*stack)->next)
 		return ;
 	first = *stack;
-	*stack = first->next;
-	last = ft_lstlast(first);
+	*stack = (*stack)->next;
+	last = ft_lstlast(*stack);
 	last->next = first;
 	first->next = NULL;
 }
