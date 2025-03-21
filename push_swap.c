@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:25 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/21 02:32:23 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/21 03:05:23 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static char	**valid_args(int ac, char **av)
 	if (is_duplicate(array, count_array_str(array)))
 		return (free(joined_str), split_free(array, count_array_str(array)),
 			NULL);
+	free(joined_str);
 	return (array);
 }
 
@@ -76,12 +77,13 @@ int	main(int ac, char **av)
 	char	**array;
 	int		i;
 	t_list	*stack_a;
-	t_list	*tmp;
 	t_list	*stack_b;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	i = 0;
+	if (ac == 1)
+		return (1);
 	if (is_empty(ac, av))
 		return (write(2, "Error\n", 6), 1);
 	array = valid_args(ac, av); // Need to be freed
@@ -91,11 +93,5 @@ int	main(int ac, char **av)
 	if (!stack_a)
 		return (split_free(array, count_array_str(array)), write(2, "Error\n",
 				6), 1);
-	tmp = stack_a;
-	while (tmp)
-	{
-		printf("%d -> ", *(int *)tmp->content);
-		tmp = tmp->next;
-	}
-	printf("NULL\n");
+	split_free(array, count_array_str(array));
 }

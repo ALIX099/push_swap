@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:28 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/20 00:44:16 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/21 02:47:49 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,6 @@ void	sx(t_list **stack_a);
 void	rx(t_list **stack_a);
 void	rrx(t_list **stack);
 void	px(t_list **stack, t_list **sec_stack);
+void	free_list(t_list *head);
+
 #endif

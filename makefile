@@ -12,6 +12,7 @@ SRCS = parsing.c \
 	moves/sx.c \
 	moves/rrx.c \
 	moves/px.c \
+	free_list.c \
 
 OBJS = $(SRCS:.c=.o)
 
