@@ -1,34 +1,36 @@
 CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-CFLAGS = -Wextra -Wall -Werror -g3
+LIBFT = libft/libft.a
 
-LIBS = libft/libft.a \
-	ft_printf/libftprintf.a
+FT_PRINTF = ft_printf/libftprintf.a
+
+LIBS = $(LIBFT) $(FT_PRINTF)
 
 SRCS = parsing.c \
-	push_swap.c \
-	algorithme.c \
-	moves/rx.c \
-	moves/sx.c \
-	moves/rrx.c \
-	moves/px.c \
-	free_list.c \
+       push_swap.c \
+       algorithme.c \
+       moves/rx.c \
+       moves/sx.c \
+       moves/rrx.c \
+       moves/px.c \
+       free_list.c
 
 OBJS = $(SRCS:.c=.o)
 
 EXNAME = push_swap
 
-all: libft ft_printf $(EXNAME)
+all: $(EXNAME)
 
-libft:
+$(LIBFT):
 	make bonus -C libft
 	make -C libft
 
-ft_printf:
+$(FT_PRINTF):
 	make -C ft_printf
 
-$(EXNAME): $(LIBS) $(OBJS)
-	$(CC) $(OBJS) $(LIBS) -o $(EXNAME)
+$(EXNAME): $(OBJS) $(LIBS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(EXNAME)
 
 %.o: %.c push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -45,4 +47,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all libft ft_printf clean fclean re
+.PHONY: all clean fclean re
