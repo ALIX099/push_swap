@@ -14,8 +14,8 @@
 
 void	rx(t_list **stack)
 {
-	t_list *last;
-	t_list *first;
+	t_list	*last;
+	t_list	*first;
 
 	if (!stack || !(*stack) || !(*stack)->next)
 		return ;
