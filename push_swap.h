@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:28 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/21 02:47:49 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/22 05:28:09 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ void	rx(t_list **stack_a);
 void	rrx(t_list **stack);
 void	px(t_list **stack, t_list **sec_stack);
 void	free_list(t_list *head);
+int		is_sorted(t_list *stack);
+void first_five(t_list *stack_a , t_list *stack_b);
 
 #endif

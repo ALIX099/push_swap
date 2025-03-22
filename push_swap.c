@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:25 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/21 03:05:23 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/22 05:26:39 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,11 @@ int	main(int ac, char **av)
 		return (split_free(array, count_array_str(array)), write(2, "Error\n",
 				6), 1);
 	split_free(array, count_array_str(array));
+	first_five(stack_a, stack_b);
+	// while (stack_a)
+	// {
+	// 	printf ("%d -> ", *(int *)stack_a->content);
+	// 	stack_a = stack_a->next;
+	// }
+	// printf("NULL\n");
 }

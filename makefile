@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
 LIBFT = libft/libft.a
 
@@ -9,12 +9,13 @@ LIBS = $(LIBFT) $(FT_PRINTF)
 
 SRCS = parsing.c \
        push_swap.c \
-       algorithme.c \
+       algo_area/algorithme.c \
        moves/rx.c \
        moves/sx.c \
        moves/rrx.c \
        moves/px.c \
-       free_list.c
+       free_list.c \
+	   algo_area/is_sorted.c
 
 OBJS = $(SRCS:.c=.o)
 
