@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 01:08:34 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/21 03:08:28 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/22 06:54:14 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,23 @@ void	rrx(t_list **stack)
 	last->next = *stack;
 	*stack = last;
 	before_last->next = NULL;
+}
+
+void	rra(t_list **stack)
+{
+	rrx(stack);
+	ft_printf ("rra\n");
+}
+
+void	rrb(t_list **stack)
+{
+	rrx(stack);
+	ft_printf ("rrb\n");
+}
+
+void	rrr(t_list **stack, t_list **sec_stack)
+{
+	rrx(stack);
+	rrx(sec_stack);
+	ft_printf ("rrr\n");
 }
