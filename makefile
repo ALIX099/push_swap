@@ -9,14 +9,15 @@ LIBS = $(LIBFT) $(FT_PRINTF)
 
 SRCS = parsing.c \
        push_swap.c \
-       algo_area/first_algorithme.c \
        moves/rx.c \
        moves/sx.c \
        moves/rrx.c \
        moves/px.c \
        free_list.c \
 	   algo_area/is_sorted.c \
-	   algo_area/minimum.c
+	   algo_area/minimum.c \
+       algo_area/first_algorithme.c \
+       algo_area/sec_algorithme.c
 
 OBJS = $(SRCS:.c=.o)
 

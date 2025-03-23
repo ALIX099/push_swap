@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 10:31:54 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/22 05:43:51 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/23 03:30:59 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,11 @@ int	is_sorted(t_list *stack)
 	t_list	*tmp;
 
 	tmp = stack;
-	while (tmp)
+	while (tmp && tmp->next)
 	{
-		while (stack)
-		{
-			if (*(int *)tmp->content > *(int *)stack->content)
-				return (0);
-			stack = stack->next;
-		}
+		if (*(int *)tmp->content > *(int *)tmp->next->content)
+			return (0);
 		tmp = tmp->next;
-		if (tmp)
-			stack = tmp->next;
 	}
 	return (1);
 }
