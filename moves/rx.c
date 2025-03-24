@@ -29,18 +29,18 @@ void	rx(t_list **stack)
 void	ra(t_list **stack)
 {
 	rx(stack);
-	ft_printf ("ra\n");
+	ft_printf("ra\n");
 }
 
 void	rb(t_list **stack)
 {
 	rx(stack);
-	ft_printf ("rb\n");
+	ft_printf("rb\n");
 }
 
 void	rr(t_list **stack, t_list **sec_stack)
 {
 	rx(stack);
 	rx(sec_stack);
-	ft_printf ("rr\n");
+	ft_printf("rr\n");
 }

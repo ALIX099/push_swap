@@ -89,8 +89,8 @@ int	is_empty(int ac, char **av)
 
 int	is_duplicate(char **av, int ac)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < ac - 1)

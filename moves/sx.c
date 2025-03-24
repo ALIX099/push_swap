@@ -31,18 +31,18 @@ void	sx(t_list **stack)
 void	sa(t_list **stack)
 {
 	sx(stack);
-	ft_printf ("sa\n");
+	ft_printf("sa\n");
 }
 
 void	sb(t_list **stack)
 {
 	sx(stack);
-	ft_printf ("sb\n");
+	ft_printf("sb\n");
 }
 
 void	ss(t_list **stack, t_list **sec_stack)
 {
 	sx(stack);
 	sx(sec_stack);
-	ft_printf ("ss\n");
+	ft_printf("ss\n");
 }

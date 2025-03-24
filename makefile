@@ -16,8 +16,12 @@ SRCS = parsing.c \
        free_list.c \
 	   algo_area/is_sorted.c \
 	   algo_area/minimum.c \
+	   algo_area/bubble_sort.c \
        algo_area/first_algorithme.c \
-       algo_area/sec_algorithme.c
+       algo_area/sec_algorithme.c \
+	   algo_area/append_to_array.c \
+	   algo_area/maximum.c \
+	   algo_area/should_do.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   px.c                                               :+:      :+:    :+:   */
+/*   append_to_array.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 01:08:53 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/22 06:51:19 by abouknan         ###   ########.fr       */
+/*   Created: 2025/03/23 04:52:53 by abouknan          #+#    #+#             */
+/*   Updated: 2025/03/23 15:35:53 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	px(t_list **stack, t_list **sec_stack)
+int	*append_to_array(t_list *stack, int size)
 {
-	t_list	*new;
-	t_list	*tmp;
+	unsigned int	i;
+	int				*array;
 
-	if (!stack || !*stack)
-		return ;
-	new = ft_lstnew((*stack)->content);
-	ft_lstadd_front(sec_stack, new);
-	tmp = *stack;
-	*stack = (*stack)->next;
-	free(tmp);
-}
-
-void	pa(t_list **stack, t_list **sec_stack)
-{
-	px(stack, sec_stack);
-	ft_printf("pa\n");
-}
-
-void	pb(t_list **stack, t_list **sec_stack)
-{
-	px(stack, sec_stack);
-	ft_printf("pb\n");
+	i = 0;
+	array = malloc(sizeof(int) * size);
+	if (!array)
+		return (NULL);
+	while (stack)
+	{
+		array[i] = *(int *)stack->content;
+		stack = stack->next;
+		i++;
+	}
+	return (array);
 }

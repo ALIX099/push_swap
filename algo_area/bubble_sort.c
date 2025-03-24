@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   px.c                                               :+:      :+:    :+:   */
+/*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 01:08:53 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/22 06:51:19 by abouknan         ###   ########.fr       */
+/*   Created: 2025/03/23 04:10:51 by abouknan          #+#    #+#             */
+/*   Updated: 2025/03/24 21:13:10 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	px(t_list **stack, t_list **sec_stack)
+void	bubble_sort(int *array, int size)
 {
-	t_list	*new;
-	t_list	*tmp;
+	int swapped;
+	int i;
+	int temp;
 
-	if (!stack || !*stack)
-		return ;
-	new = ft_lstnew((*stack)->content);
-	ft_lstadd_front(sec_stack, new);
-	tmp = *stack;
-	*stack = (*stack)->next;
-	free(tmp);
-}
-
-void	pa(t_list **stack, t_list **sec_stack)
-{
-	px(stack, sec_stack);
-	ft_printf("pa\n");
-}
-
-void	pb(t_list **stack, t_list **sec_stack)
-{
-	px(stack, sec_stack);
-	ft_printf("pb\n");
+	swapped = 1;
+	while (swapped)
+	{
+		i = 0;
+		swapped = 0;
+		while (i < size - 1)
+		{
+			if (array[i] > array[i + 1])
+			{
+				temp = array[i];
+				array[i] = array[i + 1];
+				array[i + 1] = temp;
+				swapped = 1;
+			}
+			i++;
+		}
+	}
 }
