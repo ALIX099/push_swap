@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:28 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/25 06:00:34 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:07:10 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@
 
 typedef struct s_range
 {
+	int	offset;
 	int	*array;
-	int	chunk_size;
 	int	size;
-	int	target;
-	int	range_end;
-	int	i;
-	int	content;
-}	t_range;
+	int	start;
+	int	end;
+}		t_range;
 
 int		is_empty(int ac, char **av);
 char	*ft_join(char **av, int ac);
@@ -54,10 +52,12 @@ void	sb(t_list **stack);
 void	ss(t_list **stack, t_list **sec_stack);
 t_list	*mini_node(t_list *stack);
 void	bubble_sort(int *array, int size);
-void	large_sort(t_list **stack_a, t_list **stack_b, int size);
 int		*append_to_array(t_list *stack, int size);
 int		find_position(t_list *stack, int value);
-int		find_in_stack(t_list *stack, int value);
-void	move_to_top(t_list **stack, int value, int is_stack_a);
+void	sec_algorithme(t_list **a, t_list **b, int size);
+int		find_max_value(t_list *stack);
+int		is_almost_sorted(t_list *a);
+void	push_to_b(t_list **a, t_list **b, t_range *range);
+void	push_to_a(t_list **a, t_list **b);
 
 #endif

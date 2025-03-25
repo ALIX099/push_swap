@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 05:39:37 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/25 05:41:10 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:20:34 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,42 +29,64 @@ int	find_position(t_list *stack, int value)
 	return (-1);
 }
 
-int	find_in_stack(t_list *stack, int value)
+static void	next_chunk(t_range *range)
 {
-	while (stack)
-	{
-		if (*(int *)stack->content == value)
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
+	if (range->start < range->end - 1)
+		range->start++;
+	if (range->end < range->size - 1)
+		range->end++;
 }
 
-void	move_to_top(t_list **stack, int value, int is_stack_a)
+void	push_to_a(t_list **a, t_list **b)
 {
+	int	max;
 	int	pos;
 	int	size;
 
-	pos = find_position(*stack, value);
-	size = ft_lstsize(*stack);
-	if (pos <= size / 2)
+	while (*b)
 	{
-		while (*(int *)(*stack)->content != value)
+		max = find_max_value(*b);
+		pos = find_position(*b, max);
+		size = ft_lstsize(*b);
+		if (pos <= size / 2)
 		{
-			if (is_stack_a)
-				ra(stack);
-			else
-				rb(stack);
+			while (*(int *)(*b)->content != max)
+				rb(b);
 		}
+		else
+		{
+			while (*(int *)(*b)->content != max)
+				rrb(b);
+		}
+		pa(b, a);
+		if (*a && (*a)->next
+			&& *(int *)(*a)->content > *(int *)(*a)->next->content)
+			sa(a);
 	}
-	else
+}
+
+void	push_to_b(t_list **a, t_list **b, t_range *range)
+{
+	int	content;
+
+	while (*a)
 	{
-		while (*(int *)(*stack)->content != value)
+		content = *(int *)(*a)->content;
+		if (content <= range->array[range->start])
 		{
-			if (is_stack_a)
-				rra(stack);
-			else
-				rrb(stack);
+			pb(a, b);
+			rb(b);
+			next_chunk(range);
 		}
+		else if (content <= range->array[range->end])
+		{
+			pb(a, b);
+			if (ft_lstsize(*b) > 1
+				&& *(int *)(*b)->content < *(int *)(*b)->next->content)
+				sb(b);
+			next_chunk(range);
+		}
+		else
+			ra(a);
 	}
 }

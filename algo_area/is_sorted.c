@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 10:31:54 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/23 04:47:58 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/25 16:25:32 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,28 @@ int	is_sorted(t_list *stack)
 		tmp = tmp->next;
 	}
 	return (1);
+}
+
+int	is_almost_sorted(t_list *a)
+{
+	t_list	*current;
+	int		min_val;
+
+	if (!a || !a->next)
+		return (0);
+	min_val = *(int *)mini_node(a)->content;
+	current = a;
+	while (current->next)
+	{
+		if (*(int *)current->content > *(int *)current->next->content)
+		{
+			if (current->next->next == NULL
+				&& *(int *)current->next->content == min_val)
+				return (1);
+			else
+				return (0);
+		}
+		current = current->next;
+	}
+	return (0);
 }

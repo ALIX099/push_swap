@@ -5,61 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/25 05:52:29 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/25 06:01:42 by abouknan         ###   ########.fr       */
+/*   Created: 2025/03/25 16:01:06 by abouknan          #+#    #+#             */
+/*   Updated: 2025/03/25 17:07:38 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	push_chunks_to_b(t_list **stack_a, t_list **stack_b, t_range *range)
+static void	affect_values(t_list **a, t_range *range, int size)
 {
-	int content;
-	range->i = 0;
-	while (range->i < range->size)
-	{
-		range->range_end = range->i + range->chunk_size;
-		if (range->range_end > range->size)
-			range->range_end = range->size;
-		while (range->i < range->range_end)
-		{
-			range->target = range->array[range->size - 1 - range->i];
-			move_to_top(stack_a, range->target, 1);
-			pb(stack_a, stack_b);
-			content = *(int *)(*stack_a)->next->content;
-			if (*stack_b && (*stack_b)->next
-				&& *(int *)(*stack_b)->content < content)
-				rb(stack_b);
-			range->i++;
-		}
-	}
+	range->array = append_to_array(*a, size);
+	if (!range->array)
+		return ;
+	bubble_sort(range->array, size);
+	if (size <= 100)
+		range->offset = size / 6;
+	else
+		range->offset = size / 12;
+	range->size = size;
+	range->start = 0;
+	range->end = range->offset;
 }
 
-void	large_sort(t_list **stack_a, t_list **stack_b, int size)
+void	sec_algorithme(t_list **a, t_list **b, int size)
 {
 	t_range	range;
 
-	range.array = append_to_array(*stack_a, size);
-	bubble_sort(range.array, size);
-	range.size = size;
-	if (size <= 100)
-		range.chunk_size = size / 6;
-	else
-		range.chunk_size = size / 15;
-	push_chunks_to_b(stack_a, stack_b, &range);
-	range.i = size - 1;
-	while (range.i >= 0)
+	if (is_sorted(*a))
+		return ;
+	if (is_almost_sorted(*a))
 	{
-		if (find_in_stack(*stack_b, range.array[range.i]))
-		{
-			move_to_top(stack_b, range.array[range.i], 0);
-			pa(stack_b, stack_a);
-			range.content = *(int *)(*stack_a)->next->content;
-			if (*stack_a && (*stack_a)->next
-				&& *(int *)(*stack_a)->content > range.content)
-				sa(stack_a);
-		}
-		range.i--;
+		rra(a);
+		return ;
 	}
+	affect_values(a, &range, size);
+	push_to_b(a, b, &range);
+	push_to_a(a, b);
 	free(range.array);
 }

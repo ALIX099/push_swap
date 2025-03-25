@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:25 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/25 05:47:22 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/25 15:24:08 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	main(int ac, char **av)
 	split_free(array, count_array_str(array));
 	first_five(&stack_a, &stack_b);
 	if (!is_sorted(stack_a))
-		large_sort(&stack_a, &stack_b, ft_lstsize(stack_a));
+		sec_algorithme(&stack_a, &stack_b, ft_lstsize(stack_a));
 	free_list(stack_a);
 	free_list(stack_b);
 }
