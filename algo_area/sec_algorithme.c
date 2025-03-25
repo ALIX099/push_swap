@@ -1,71 +1,65 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sec_algorithme.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/25 05:52:29 by abouknan          #+#    #+#             */
+/*   Updated: 2025/03/25 06:01:42 by abouknan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
+
+void	push_chunks_to_b(t_list **stack_a, t_list **stack_b, t_range *range)
+{
+	int content;
+	range->i = 0;
+	while (range->i < range->size)
+	{
+		range->range_end = range->i + range->chunk_size;
+		if (range->range_end > range->size)
+			range->range_end = range->size;
+		while (range->i < range->range_end)
+		{
+			range->target = range->array[range->size - 1 - range->i];
+			move_to_top(stack_a, range->target, 1);
+			pb(stack_a, stack_b);
+			content = *(int *)(*stack_a)->next->content;
+			if (*stack_b && (*stack_b)->next
+				&& *(int *)(*stack_b)->content < content)
+				rb(stack_b);
+			range->i++;
+		}
+	}
+}
 
 void	large_sort(t_list **stack_a, t_list **stack_b, int size)
 {
-	int	*sorted;
-	int	chunk_size;
-	int	i;
-	int	range_end;
-	int	target;
-	int	stack_size;
-	int	max;
-	int	pos;
-	int	b_size;
+	t_range	range;
 
-	if (is_sorted(*stack_a))
-		return ;
-	sorted = append_to_array(*stack_a, size);
-	bubble_sort(sorted, size);
+	range.array = append_to_array(*stack_a, size);
+	bubble_sort(range.array, size);
+	range.size = size;
 	if (size <= 100)
-		chunk_size = size / 6;
+		range.chunk_size = size / 6;
 	else
-		chunk_size = size / 12;
-	i = 0;
-	while (i < size)
+		range.chunk_size = size / 15;
+	push_chunks_to_b(stack_a, stack_b, &range);
+	range.i = size - 1;
+	while (range.i >= 0)
 	{
-		range_end = i + chunk_size;
-		if (range_end > size)
-			range_end = size;
-		while (i < range_end)
+		if (find_in_stack(*stack_b, range.array[range.i]))
 		{
-			target = sorted[i];
-			pos = find_position(*stack_a, target);
-			stack_size = ft_lstsize(*stack_a);
-			if (pos <= stack_size / 2)
-			{
-				while (*(int *)(*stack_a)->content != target)
-					ra(stack_a);
-			}
-			else
-			{
-				while (*(int *)(*stack_a)->content != target)
-					rra(stack_a);
-			}
-			pb(stack_a, stack_b);
-			i++;
-		}
-	}
-	while (*stack_b)
-	{
-		max = maximum(*stack_b);
-		pos = find_position(*stack_b, max);
-		b_size = ft_lstsize(*stack_b);
-		if (pos <= b_size / 2)
-		{
-			while (*(int *)(*stack_b)->content != max)
-				rb(stack_b);
-		}
-		else
-		{
-			while (*(int *)(*stack_b)->content != max)
-				rrb(stack_b);
-		}
-		pa(stack_b, stack_a);
-		if (ft_lstsize(*stack_a) >= 2)
-		{
-			if (*(int *)(*stack_a)->content > *(int *)(*stack_a)->next->content)
+			move_to_top(stack_b, range.array[range.i], 0);
+			pa(stack_b, stack_a);
+			range.content = *(int *)(*stack_a)->next->content;
+			if (*stack_a && (*stack_a)->next
+				&& *(int *)(*stack_a)->content > range.content)
 				sa(stack_a);
 		}
+		range.i--;
 	}
-	free(sorted);
+	free(range.array);
 }

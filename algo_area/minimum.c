@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 07:12:15 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/23 17:49:21 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/25 05:47:58 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_list	*mini_node(t_list *stack)
 {
-	t_list *tmp;
-	t_list *minimum;
+	t_list	*tmp;
+	t_list	*minimum;
 
 	tmp = stack;
 	minimum = stack;

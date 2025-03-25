@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror
 
 LIBFT = libft/libft.a
 
@@ -20,7 +20,6 @@ SRCS = parsing.c \
        algo_area/first_algorithme.c \
        algo_area/sec_algorithme.c \
 	   algo_area/append_to_array.c \
-	   algo_area/maximum.c \
 	   algo_area/should_do.c
 
 OBJS = $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:28 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/24 21:17:50 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/25 06:00:34 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@
 typedef struct s_range
 {
 	int	*array;
-	int	mid;
-	int	offset;
-	int	start;
-	int	end;
-}		t_range;
+	int	chunk_size;
+	int	size;
+	int	target;
+	int	range_end;
+	int	i;
+	int	content;
+}	t_range;
 
 int		is_empty(int ac, char **av);
 char	*ft_join(char **av, int ac);
@@ -51,12 +53,11 @@ void	sa(t_list **stack);
 void	sb(t_list **stack);
 void	ss(t_list **stack, t_list **sec_stack);
 t_list	*mini_node(t_list *stack);
-void bubble_sort(int *array, int size);
+void	bubble_sort(int *array, int size);
 void	large_sort(t_list **stack_a, t_list **stack_b, int size);
 int		*append_to_array(t_list *stack, int size);
-int find_in_stack(t_list *stack, int value);
-int	maximum(t_list *stack);
-int find_position(t_list *stack, int value);
-void	move_to_top_a(t_list **stack, int value, int remaining_size);
+int		find_position(t_list *stack, int value);
+int		find_in_stack(t_list *stack, int value);
+void	move_to_top(t_list **stack, int value, int is_stack_a);
 
 #endif

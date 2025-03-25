@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 04:10:51 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/24 21:13:10 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/25 05:48:15 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	bubble_sort(int *array, int size)
 {
-	int swapped;
-	int i;
-	int temp;
+	int	swapped;
+	int	i;
+	int	temp;
 
 	swapped = 1;
 	while (swapped)

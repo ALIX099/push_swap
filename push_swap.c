@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:25 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/24 21:43:21 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/25 05:47:22 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	main(int ac, char **av)
 		return (1);
 	if (is_empty(ac, av))
 		return (write(2, "Error\n", 6), 1);
-	array = valid_args(ac, av); // Need to be freed
+	array = valid_args(ac, av);
 	if (!array)
 		return (write(2, "Error\n", 6), 1);
 	stack_a = append(array);
@@ -95,7 +95,8 @@ int	main(int ac, char **av)
 				6), 1);
 	split_free(array, count_array_str(array));
 	first_five(&stack_a, &stack_b);
-	large_sort(&stack_a, &stack_b, ft_lstsize(stack_a));
+	if (!is_sorted(stack_a))
+		large_sort(&stack_a, &stack_b, ft_lstsize(stack_a));
 	free_list(stack_a);
-	// free_list(stack_b);
+	free_list(stack_b);
 }
