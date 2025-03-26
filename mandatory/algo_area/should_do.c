@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 05:39:37 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/25 17:20:34 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/26 06:28:11 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	push_to_a(t_list **a, t_list **b)
 				rrb(b);
 		}
 		pa(b, a);
-		if (*a && (*a)->next
+		if (ft_lstsize(*a) > 1
 			&& *(int *)(*a)->content > *(int *)(*a)->next->content)
 			sa(a);
 	}
