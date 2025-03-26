@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 01:08:34 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/26 04:00:32 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/26 04:17:15 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,3 @@ void	rotate_reverse_both(t_list **stack, t_list **sec_stack)
 	rotate_reverse(stack);
 	rotate_reverse(sec_stack);
 }
-

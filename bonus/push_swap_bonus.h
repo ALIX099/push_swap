@@ -14,9 +14,9 @@
 # define PUSH_SWAP_BONUS_H
 
 # include "../mandatory/push_swap.h"
-#include "get_next_line_bonus/get_next_line_bonus.h"
+# include "get_next_line_bonus/get_next_line_bonus.h"
 
-void check_input(t_list **stack_a, t_list **stack_b, char *line);
+void	check_input(t_list **stack_a, t_list **stack_b, char *line);
 void	push_a(t_list **stack, t_list **sec_stack);
 void	push_b(t_list **stack, t_list **sec_stack);
 void	rotate_reverse_a(t_list **stack);

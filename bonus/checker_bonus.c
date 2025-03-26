@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/26 04:15:55 by abouknan          #+#    #+#             */
+/*   Updated: 2025/03/26 04:39:37 by abouknan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 
 char		**split_free(char **s, int i);
@@ -46,6 +58,8 @@ t_list	*append(char **array)
 
 	i = 0;
 	head = NULL;
+	if (!array)
+		exit(write(2, "Error\n", 6));
 	while (i < count_array_str(array))
 	{
 		value = malloc(sizeof(int));
@@ -54,11 +68,7 @@ t_list	*append(char **array)
 		*value = ft_atoi(array[i]);
 		stack = ft_lstnew(value);
 		if (!stack)
-		{
-			free(value);
-			ft_lstclear(&head, free);
-			return (NULL);
-		}
+			return (free(value), ft_lstclear(&head, free), NULL);
 		ft_lstadd_back(&head, stack);
 		i++;
 	}
@@ -75,17 +85,16 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	array = valid_args(ac, av);
-	if (!array)
-		return (write(2, "Error\n", 6), 1);
 	stack_a = append(array);
 	if (!stack_a)
 		return (split_free(array, count_array_str(array)), write(2, "Error\n",
 				6), 1);
 	split_free(array, count_array_str(array));
-	while ((line = get_next_line(0)))
+	line = get_next_line(0);
+	while (line)
 	{
 		check_input(&stack_a, &stack_b, line);
-		free(line);
+		line = get_next_line(0);
 	}
 	if (is_sorted(stack_a) && !stack_b)
 		write(1, "OK\n", 3);

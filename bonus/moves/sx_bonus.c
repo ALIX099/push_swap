@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 01:07:23 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/26 04:01:52 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/26 04:17:21 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,3 @@ void	swap_both(t_list **stack, t_list **sec_stack)
 	swap(stack);
 	swap(sec_stack);
 }
-

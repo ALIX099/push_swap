@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 02:28:27 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/26 04:03:18 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/26 04:29:44 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static int	ft_strcmp(char *s1, char *s2)
 	}
 	return (s1[i] - s2[i]);
 }
+
 static void	ft_error(t_list **stack_a, t_list **stack_b, char *line)
 {
 	free(line);
@@ -59,4 +60,5 @@ void	check_input(t_list **stack_a, t_list **stack_b, char *line)
 		rotate_reverse_both(stack_a, stack_b);
 	else
 		ft_error(stack_a, stack_b, line);
+	free(line);
 }
