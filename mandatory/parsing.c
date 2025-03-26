@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:22 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/22 08:21:10 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/26 03:41:29 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,8 @@ char	*ft_join(char **av, int ac)
 	while (a < ac)
 	{
 		tmp = ft_strjoin(str, av[a]);
-		free(str);
 		str = tmp;
 		tmp = ft_strjoin(str, " ");
-		free(str);
 		str = tmp;
 		a++;
 	}

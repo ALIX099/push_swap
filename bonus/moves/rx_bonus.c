@@ -1,48 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sx.c                                               :+:      :+:    :+:   */
+/*   rx_bonus.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 01:07:23 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/25 05:48:30 by abouknan         ###   ########.fr       */
+/*   Created: 2025/03/20 01:07:51 by abouknan          #+#    #+#             */
+/*   Updated: 2025/03/26 04:01:22 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../push_swap_bonus.h"
 
-void	ft_swap(int *a, int *b)
+static void	rotate(t_list **stack)
 {
-	int	tmp;
+	t_list	*last;
+	t_list	*first;
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
-void	sx(t_list **stack)
-{
 	if (!stack || !(*stack) || !(*stack)->next)
 		return ;
-	ft_swap((*stack)->content, (*stack)->next->content);
+	first = *stack;
+	*stack = (*stack)->next;
+	last = ft_lstlast(*stack);
+	last->next = first;
+	first->next = NULL;
 }
 
-void	sa(t_list **stack)
+void	rotate_a(t_list **stack)
 {
-	sx(stack);
-	ft_printf("sa\n");
+	rotate(stack);
 }
 
-void	sb(t_list **stack)
+void	rotate_b(t_list **stack)
 {
-	sx(stack);
-	ft_printf("sb\n");
+	rotate(stack);
 }
 
-void	ss(t_list **stack, t_list **sec_stack)
+void	rotate_both(t_list **stack, t_list **sec_stack)
 {
-	sx(stack);
-	sx(sec_stack);
-	ft_printf("ss\n");
+	rotate(stack);
+	rotate(sec_stack);
 }
+

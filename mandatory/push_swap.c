@@ -6,7 +6,7 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:25 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/25 15:24:08 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/26 03:38:44 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	**valid_args(int ac, char **av)
 
 	joined_str = ft_join(av, ac);
 	if (!joined_str)
-		return (write(2, "Error\n", 6), NULL);
+		return (NULL);
 	array = ft_split(joined_str, ' ');
 	if (!array)
 		return (free(joined_str), NULL);
@@ -58,12 +58,13 @@ t_list	*append(char **array)
 	{
 		value = malloc(sizeof(int));
 		if (!value)
-			return (NULL);
+			return (ft_lstclear(&head, free), NULL);
 		*value = ft_atoi(array[i]);
 		stack = ft_lstnew(value);
 		if (!stack)
 		{
 			free(value);
+			ft_lstclear(&head, free);
 			return (NULL);
 		}
 		ft_lstadd_back(&head, stack);
@@ -83,7 +84,7 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	i = 0;
 	if (ac == 1)
-		return (1);
+		return (0);
 	if (is_empty(ac, av))
 		return (write(2, "Error\n", 6), 1);
 	array = valid_args(ac, av);
@@ -97,6 +98,5 @@ int	main(int ac, char **av)
 	first_five(&stack_a, &stack_b);
 	if (!is_sorted(stack_a))
 		sec_algorithme(&stack_a, &stack_b, ft_lstsize(stack_a));
-	free_list(stack_a);
-	free_list(stack_b);
+	ft_lstclear(&stack_a, free);
 }

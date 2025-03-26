@@ -6,15 +6,15 @@
 /*   By: abouknan <abouknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:14:28 by abouknan          #+#    #+#             */
-/*   Updated: 2025/03/25 17:07:10 by abouknan         ###   ########.fr       */
+/*   Updated: 2025/03/26 00:55:50 by abouknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "ft_printf/ft_printf.h"
-# include "libft/libft.h"
+# include "../includes/ft_printf/ft_printf.h"
+# include "../includes/libft/libft.h"
 # include <limits.h>
 # include <stddef.h>
 # include <stdlib.h>
